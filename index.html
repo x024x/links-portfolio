@@ -33,8 +33,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
         
-        :root { --primary: #9d00ff; --bg: #030303; --text: #ffffff; }
+        :root { --primary: #9d00ff; --bg: #000000; --text: #ffffff; }
         
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body { 
             background-color: var(--bg); 
             color: var(--text); 
@@ -42,26 +44,32 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
+            width: 100%;
             position: relative; 
             overflow: hidden; 
-            margin: 0; 
         }
 
-        /* أنيميشن الخلفية */
-        body::before { 
-            content: ''; 
-            position: absolute; 
-            width: 200vw; 
-            height: 200vh; 
-            background-image: radial-gradient(rgba(157, 0, 255, 0.3) 1.5px, transparent 1.5px); 
-            background-size: 50px 50px; 
+        /* خلفية الجيتارات المتحركة */
+        .bg-animation {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: 0;
-            animation: move 60s linear infinite; 
+            pointer-events: none;
         }
 
-        @keyframes move { 
-            from { transform: translate(-30%, -30%) rotate(0deg); } 
-            to { transform: translate(-10%, -10%) rotate(360deg); } 
+        .guitar {
+            position: absolute;
+            font-size: 25px;
+            opacity: 0.2;
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         .container { width: 100%; max-width: 400px; padding: 20px; text-align: center; z-index: 10; position: relative; }
@@ -77,34 +85,23 @@
         
         .bio { font-size: 0.95rem; color: #cccccc; margin-bottom: 35px; }
 
-        /* الأزرار الشفافة غصباً على المتصفح */
-                    display: flex; 
-            align-items: center; 
+        .link { 
+            display: flex; align-items: center; 
             background: rgba(255, 255, 255, 0.03) !important; 
             backdrop-filter: blur(25px) saturate(180%) !important; 
             -webkit-backdrop-filter: blur(25px) saturate(180%) !important; 
-            color: var(--text); 
-            text-decoration: none; 
-            padding: 18px 25px; 
-            margin-bottom: 20px; 
-            border-radius: 22px; 
+            color: var(--text); text-decoration: none; 
+            padding: 18px 25px; margin-bottom: 20px; border-radius: 22px; 
             border: 1px solid rgba(255, 255, 255, 0.12) !important; 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
         }
 
-        .link:hover { 
-            transform: scale(1.02) translateY(-2px); 
-            background: rgba(255, 255, 255, 0.08) !important; 
-            border-color: var(--primary) !important;
-            box-shadow: 0 10px 40px rgba(157, 0, 255, 0.25);
-        }
-    <div class="container">
-        <div class="profile">
-            <img src="./png/pfp.png" alt="Profile" class="profile-img">
-            <h1 class="name">INDRA</h1>
-            <p class="bio">I can't help myself from lookin' for ya</p>
-        </div>
+        .link:hover { transform: scale(1.02) translateY(-2px); background: rgba(255, 255, 255, 0.08) !important; border-color: var(--primary) !important; }
+        
+        .icon { width: 24px; margin-right: 15px; color: var(--primary); display: flex; align-items: center; }
+        .icon svg { fill: currentColor; width: 100%; }
+    </style>
 
         <a href="https://t.me/xargents" class="link" title="Telegram">
             <div class="icon">
@@ -127,6 +124,13 @@
             Spotify
         </a>
     </div>
+    <div class="bg-animation">
+        <div class="guitar" style="left: 10%; animation-delay: 0s;">🎸</div>
+        <div class="guitar" style="left: 30%; animation-delay: 5s;">🎸</div>
+        <div class="guitar" style="left: 55%; animation-delay: 2s;">🎸</div>
+        <div class="guitar" style="left: 80%; animation-delay: 8s;">🎸</div>
+        <div class="guitar" style="left: 20%; animation-delay: 12s;">🎸</div>
+        <div class="guitar" style="left: 70%; animation-delay: 4s;">🎸</div>
     </div>
 </body>
 </html>
