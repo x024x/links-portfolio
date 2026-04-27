@@ -42,55 +42,60 @@
         }
 
         .container { 
-            width: 90%; max-width: 400px; 
-            padding: 40px 20px; text-align: center; 
+            width: 85%; max-width: 350px; 
+            padding: 30px 15px; text-align: center; 
             z-index: 10; position: relative; 
         }
 
         .profile-img { 
-            width: 110px; height: 110px; border-radius: 50%; 
-            border: 1px solid rgba(255, 255, 255, 0.3); margin-bottom: 20px; 
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1); object-fit: cover; 
+            width: 100px; height: 100px; 
+            border-radius: 50%; 
+            border: 1px solid rgba(255, 255, 255, 0.3); margin-bottom: 15px; 
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); object-fit: cover; 
         }
 
-        .name { font-weight: 500; font-size: 2.2rem; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.6); margin-bottom: 8px; }
-        .bio { font-weight: 300; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 35px; }
+        .name { font-weight: 500; font-size: 1.8rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.6); margin-bottom: 5px; }
+        .bio { font-weight: 300; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 25px; }
 
         .link { 
             display: flex; align-items: center; 
             background: rgba(255, 255, 255, 0.03) !important; 
-            backdrop-filter: blur(10px) saturate(150%) !important; 
-            -webkit-backdrop-filter: blur(10px) saturate(150%) !important; 
-            color: #fff; text-decoration: none; padding: 14px 20px; 
-            margin-bottom: 15px; border-radius: 18px; 
-            border: 1px solid rgba(255, 255, 255, 0.12) !important; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px) saturate(150%) !important; 
+            -webkit-backdrop-filter: blur(8px) saturate(150%) !important; 
+            color: #fff; text-decoration: none; 
+            padding: 10px 18px; 
+            margin-bottom: 10px; 
+            border-radius: 14px; 
+            border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+            transition: all 0.3s ease;
         }
         
         .link:hover { 
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.08) !important; 
-            border-color: rgba(255, 255, 255, 0.4) !important; 
+            transform: scale(1.01);
+            background: rgba(255, 255, 255, 0.06) !important; 
+            border-color: rgba(255, 255, 255, 0.3) !important; 
         }
 
-        /* تنسيق الدائرة البيضاء للأيقونة */
         .icon-wrapper {
-            width: 32px; height: 32px;
+            width: 28px; height: 28px; 
             background: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 12px;
             flex-shrink: 0;
+            overflow: hidden;
+            padding: 5px;
         }
 
-        .icon-wrapper svg {
-            width: 18px; height: 18px;
-            fill: #000; /* لون الأيقونة داخل الدائرة */
+        .icon-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%); 
         }
 
-        .link-text { font-size: 1rem; font-weight: 300; letter-spacing: 0.5px; }
+        .link-text { font-size: 0.9rem; font-weight: 300; }
     </style>
 </head>
 <body>
@@ -107,37 +112,27 @@
         </div>
 
         <a href="https://t.me/xargents" class="link">
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zM7.224 12.158l7.627-4.444s.688-.224.688.187c0 0-.079.37-.158.627l-1.25 4.187s-.079.317.237.317l2.812-.224s.317 0 .317.317c0 0-2.812 2.812-4.187 4.187s-.688.476-1.187 0l-1.25-1.187s-.317-.237-.627 0l-2.187 1.5s-.317.237-.317-.158l.158-4.187s0-.317-.317-.317l-.937-.937s-.237-.237.317-.317z"/></svg>
-            </div>
+            <div class="icon-wrapper"><img src="./png/tg.png" alt="Telegram"></div>
             <span class="link-text">Telegram</span>
         </a>
 
         <a href="https://tellonym.me/fakepromises/whatdou" class="link">
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.48 0-4.5-2.02-4.5-4.5S9.52 7.5 12 7.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/></svg>
-            </div>
+            <div class="icon-wrapper"><img src="./png/tl.png" alt="Tellonym"></div>
             <span class="link-text">Tellonym</span>
         </a>
 
         <a href="https://discord.com/users/1025529031283703819" class="link">
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 11.74 11.74 0 0 0-.617-1.25.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.069.069 0 0 0-.032.027C.533 9.048-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.866-1.295 1.21-1.997a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.078.078 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03z"/></svg>
-            </div>
+            <div class="icon-wrapper"><img src="./png/dc.png" alt="Discord"></div>
             <span class="link-text">Discord</span>
         </a>
 
         <a href="https://music.apple.com/us/playlist/%25D8%25B9%25D8%25B1%25D8%25A7%25D9%2582%25D9%258A/pl.u-9N9L2a4t1M6kqR4" class="link">
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.33 11.5c-.34.52-1 .68-1.52.34-3.26-1.99-7.36-2.44-12.19-1.34-.6.14-1.2-.24-1.34-.84-.14-.6.24-1.2.84-1.34 5.3-1.21 9.84-.7 13.51 1.55.52.34.68 1 .34 1.52zm1.21-2.58c-.43.71-1.35.93-2.06.5-4.04-2.48-10.22-3.21-15-1.75-.81.24-1.66-.21-1.9-1.02-.24-.81.21-1.66 1.02-1.9 5.48-1.66 12.33-.84 17 2.03.71.43.93 1.35.5 2.06zm.11-2.73C13.88 5.67 5.76 5.39 1.48 6.69c-.84.26-1.74-.22-2-1.06-.26-.84.22-1.74 1.06-2 4.88-1.48 13.89-1.18 18.77 1.72.76.45.99 1.43.54 2.19-.45.76-1.43.99-2.19.54z"/></svg>
-            </div>
+            <div class="icon-wrapper"><img src="./png/am.png" alt="Apple Music"></div>
             <span class="link-text">Apple Music</span>
         </a>
 
-        <a href="http://spotify.com" class="link">
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.503 17.306c-.215.352-.676.463-1.028.248-2.855-1.745-6.448-2.14-10.68-1.173-.404.092-.81-.16-.902-.564-.092-.404.16-.81.564-.902 4.633-1.06 8.62-.602 11.8 1.345.352.215.463.676.248 1.028zm1.468-3.26c-.27.44-.847.58-1.287.31-3.267-2.008-8.247-2.593-12.11-1.42-.494.15-1.018-.13-1.168-.624-.15-.494.13-1.018.624-1.168 4.413-1.34 9.914-.683 13.63 1.6 0 0 .44.27.31 1.287z"/></svg>
-            </div>
+        <a href="https://spotify.com" class="link">
+            <div class="icon-wrapper"><img src="./png/sp.png" alt="Spotify"></div>
             <span class="link-text">Spotify</span>
         </a>
 
