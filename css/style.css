@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 :root {
-    --primary: #9d00ff; /* البنفسجي النيون القوي والمشبع مثل الـ Setup */
-    --accent: #6a00cc;  /* درجة بنفسجي أغمق للتدرجات والظلال */
-    --bg: #030303;     /* أسود عميق مطفي */
-    --card: #101010;   /* رمادي غامق جداً للأزرار */
+    --primary: #9d00ff; /* البنفسجي النيون */
+    --bg: #030303;      /* الأسود */
     --text: #ffffff;
 }
 
@@ -23,19 +21,31 @@ body {
     align-items: center;
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* ضروري حتى الأنيميشن ما يطلع بره الشاشة */
 }
 
-/* تأثير الإضاءة الخلفية النيون (Glow) البنفسجية */
-body::before {
+/* أنيميشن الخلفية: جزيئات متحركة */
+body::before, body::after {
     content: '';
     position: absolute;
-    width: 350px;
-    height: 350px;
-    background: var(--primary);
-    filter: blur(170px);
-    opacity: 0.15;
+    width: 200vw;
+    height: 200vh;
+    background-image: radial-gradient(rgba(157, 0, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
     z-index: 0;
+    animation: move 60s linear infinite;
+}
+
+body::after {
+    background-image: radial-gradient(rgba(157, 0, 255, 0.05) 2px, transparent 2px);
+    background-size: 100px 100px;
+    animation-duration: 40s;
+    animation-direction: reverse;
+}
+
+@keyframes move {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-25%, -25%) rotate(360deg); }
 }
 
 .container {
@@ -44,51 +54,55 @@ body::before {
     padding: 20px;
     text-align: center;
     z-index: 1;
+    position: relative;
 }
 
 .profile-img {
-    width: 110px;
-    height: 110px;
+    width: 115px;
+    height: 115px;
     border-radius: 50%;
     border: 2px solid var(--primary);
     margin-bottom: 15px;
     object-fit: cover;
-    box-shadow: 0 0 25px rgba(157, 0, 255, 0.5); /* هالة بنفسجية قوية حول الصورة */
+    box-shadow: 0 0 30px rgba(157, 0, 255, 0.6);
 }
 
 .name {
     font-family: 'Satisfy', cursive;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--primary);
     margin-bottom: 5px;
-    text-shadow: 0 0 15px rgba(157, 0, 255, 0.8); /* نيون قوي على الاسم */
+    text-shadow: 0 0 20px rgba(157, 0, 255, 0.8);
 }
 
 .bio {
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin-bottom: 35px;
     letter-spacing: 1px;
 }
 
+/* أزرار شفافة (Glassmorphism) */
 .link {
     display: flex;
     align-items: center;
-    background: var(--card);
+    background: rgba(255, 255, 255, 0.03); /* شفافية عالية */
+    backdrop-filter: blur(10px);        /* تأثير التغبيش */
+    -webkit-backdrop-filter: blur(10px);
     color: var(--text);
     text-decoration: none;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    border: 1px solid rgba(157, 0, 255, 0.1);
-    transition: all 0.3s ease;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    border: 1px solid rgba(157, 0, 255, 0.2); /* إطار بنفسجي خفيف جداً */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .link:hover {
-    transform: translateY(-3px);
-    background: rgba(157, 0, 255, 0.05);
+    transform: scale(1.03);
+    background: rgba(157, 0, 255, 0.08); /* لون خفيف عند اللمس */
     border-color: var(--primary);
-    box-shadow: 0 5px 25px rgba(157, 0, 255, 0.4); /* توهج بنفسجي عند التأشير */
+    box-shadow: 0 10px 30px rgba(157, 0, 255, 0.3);
 }
 
 .icon {
